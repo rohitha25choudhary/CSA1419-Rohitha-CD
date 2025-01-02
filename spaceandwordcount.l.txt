@@ -1,0 +1,16 @@
+%{
+	int wc=0,nc=0;
+%}
+%%
+\n nc++;
+" " wc++;
+. {}
+%%
+int yywrap(void) {}
+int main()
+{
+	yyin=fopen("sample1.txt","r");
+	yylex();
+	printf("Newlines=%d\nWords=%d",nc,wc);
+	return 0;
+}

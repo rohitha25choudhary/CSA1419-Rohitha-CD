@@ -1,0 +1,14 @@
+%{
+	
+%}
+%%
+(https|www)[a-zA-Z+_0-9"."":""/"]+(com|in) {printf("Valid URL!!");}
+.+ {printf("Invalid URL");};
+%%
+int yywrap(void){}
+int main()
+{
+	printf("Enter the URL:");
+	yylex();
+	return 0;
+}

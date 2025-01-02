@@ -1,0 +1,15 @@
+%{
+	int l=0;
+%}
+%%
+.* {l++;fprintf(yyout,"\n%d:%s",l,yytext);}
+%%
+int yywrap(void){}
+int main()
+{
+	yyin=fopen("simple.txt","r");
+	yyout=fopen("output.txt","w");
+	yylex();
+	return 0;
+}
+
